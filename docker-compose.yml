@@ -1,0 +1,70 @@
+---
+version: "3.8"
+services:
+  transmission:
+    container_name: transmission
+    image: linuxserver/transmission:3.00-r5-ls125
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    ports: 
+      - "9091:9091/tcp"
+      - "51413:51413/tcp"
+      - "51413:51413/udp"
+    volumes:
+      - ${ROOT}/:/downloads
+      - ${ROOT}/opt/transmission/config:/config
+  jackett:
+    container_name: jackett
+    image: linuxserver/jackett:v0.20.1154-ls69
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK_SET: "022"
+    ports: 
+      - "9117:9117/tcp"
+    volumes:
+      - ${ROOT}/opt/jackett/config:/config
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr:amd64-3.0.8.1507-ls148
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK_SET: "002"
+    ports: 
+      - "8989:8989/tcp"
+    volumes:
+      - ${ROOT}/:/downloads
+      - ${ROOT}/opt/sonarr/config:/config
+  radarr:
+    container_name: radarr
+    image: linuxserver/radarr:amd64-4.1.0.6175-ls141
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK_SET: "022"
+    ports: 
+      - "7878:7878/tcp"
+    volumes:
+      - ${ROOT}/:/downloads
+      - ${ROOT}/opt/radarr/config:/config
+  nginx:
+    container_name: nginx
+    image: nginx:1.23.1
+    restart: unless-stopped
+    environment:
+      NGINX_HOST: hp1.risp.in
+      NGINX_PORT: 80
+    ports: 
+      - "80:80/tcp"
+    volumes:
+      - ${ROOT}/opt/nginx/nginx.conf:/etc/nginx/nginx.conf
