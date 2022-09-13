@@ -18,7 +18,7 @@ services:
       - ${ROOT}/opt/transmission/config:/config
   jackett:
     container_name: jackett
-    image: linuxserver/jackett:v0.20.1154-ls69
+    image: linuxserver/jackett:latest
     restart: unless-stopped
     environment:
       TZ: ${TZ}
@@ -68,3 +68,32 @@ services:
       - "80:80/tcp"
     volumes:
       - ${ROOT}/opt/nginx/nginx.conf:/etc/nginx/nginx.conf
+  mysql:
+    container_name: mysql
+    image: mariadb:10.9
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT}
+    ports: 
+      - "3306:3306/tcp"
+    volumes:
+      - ${ROOT}/opt/mysql:/var/lib/mysql
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    environment:
+      WEBPASSWORD: ${PIHOLE_PASSWORD}
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      DNS_BOGUS_PRIV: "true"
+      DNS_FQDN_REQUIRED: "true"
+      VIRTUAL_HOST: pihole.risp.in
+    ports: 
+      - "10.10.10.17:53:53/tcp"
+      - "10.10.10.17:53:53/udp"
+      - "8053:80/tcp"  
+    volumes:
+      - ${ROOT}/opt/pihole/etc/pihole:/etc/pihole
+      - ${ROOT}/opt/pihole/etc/dnsmasq.d:/etc/dnsmasq.d
