@@ -97,3 +97,14 @@ services:
     volumes:
       - ${ROOT}/opt/pihole/etc/pihole:/etc/pihole
       - ${ROOT}/opt/pihole/etc/dnsmasq.d:/etc/dnsmasq.d
+  dns:
+    container_name: dns
+    image: mjkaye/bind9-alpine:latest
+    restart: unless-stopped
+    ports: 
+      - "10.10.10.53:53:53/tcp"
+      - "10.10.10.53:53:53/udp"
+    volumes:
+      - ${ROOT}/opt/bind/named.conf:/etc/bind/named.conf
+      - ${ROOT}/opt/bind/risp.in.zone:/var/bind/risp.in.zone
+

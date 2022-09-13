@@ -1,0 +1,51 @@
+; base zone file for risp.in
+$TTL 2d    ; default TTL for zone
+$ORIGIN risp.in. ; base domain-name
+; Start of Authority RR defining the key characteristics of the zone (domain)
+@         IN      SOA   ns1.risp.in. hostmaster.risp.in. (
+                                2003080800 ; serial number
+                                12h        ; refresh
+                                15m        ; update retry
+                                3w         ; expiry
+                                10         ; minimum
+                                )
+; name server RR for the domain
+           IN      NS      ns1.risp.in.
+; mail server RRs for the zone (domain)
+        3w IN      MX  10  mail.risp.in.
+; domain hosts includes NS and MX records defined above
+ns1        IN      A       10.10.10.53
+mail       IN      A       40.113.77.116
+elm        IN      A       109.255.176.155
+mainframe  IN      CNAME   elm.risp.in.
+; router interfaces
+erx1-192-168-8-1	IN	A	192.168.8.1
+erx1-192-168-9-1	IN	A	192.168.9.1
+erx1-192-168-10-1	IN	A	192.168.10.1
+erx1-192-168-11-1	IN	A	192.168.11.1
+erx1-192-168-12-1	IN	A	192.168.12.1
+erx1	IN	A	10.10.10.20	
+es8xp-1	IN	A	192.168.8.22	
+esxi1	IN	A	192.168.8.25	
+hp1-ilo	IN	A	192.168.9.121
+hp1	IN	A	192.168.9.122	
+jackett	IN	A	10.10.10.66	
+media	IN	A	10.10.10.14	
+mk8s1	IN	A	192.168.16.10	
+mk8s2	IN	A	192.168.16.11	
+mysql	IN	A	10.10.10.15	
+pihole	IN	A	10.10.10.11	
+radarr	IN	A	10.10.10.64	
+router1-192-168-16-1	IN	A	192.168.16.1	
+router1-192-168-17-1	IN	A	192.168.17.1
+router1-192-168-18-1	IN	A	192.168.18.1	
+router1-192-168-19-1	IN	A	192.168.19.1	
+router1	IN	A	10.10.10.10	
+server3	IN	A	10.10.10.13	
+smokeping	IN	A	10.10.10.68	
+sonarr	IN	A	10.10.10.65	
+storage1	IN	A	10.10.10.14	
+transmission	IN	A	10.10.10.70	
+uap-1	IN	A	192.168.8.20	
+uapacpro-1	IN	A	192.168.8.21
+unifi	IN	A	10.10.10.12	
