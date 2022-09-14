@@ -65,7 +65,7 @@ services:
       NGINX_HOST: hp1.risp.in
       NGINX_PORT: 80
     ports: 
-      - "80:80/tcp"
+      - "10.10.10.17:80:80/tcp"
     volumes:
       - ${ROOT}/opt/nginx/nginx.conf:/etc/nginx/nginx.conf
   mysql:
@@ -91,9 +91,9 @@ services:
       DNS_FQDN_REQUIRED: "true"
       VIRTUAL_HOST: pihole.risp.in
     ports: 
-      - "10.10.10.17:53:53/tcp"
-      - "10.10.10.17:53:53/udp"
-      - "8053:80/tcp"  
+      - "10.10.10.11:53:53/tcp"
+      - "10.10.10.11:53:53/udp"
+      - "10.10.10.11:80:80/tcp"  
     volumes:
       - ${ROOT}/opt/pihole/etc/pihole:/etc/pihole
       - ${ROOT}/opt/pihole/etc/dnsmasq.d:/etc/dnsmasq.d
@@ -108,4 +108,7 @@ services:
       - ${ROOT}/opt/bind/named.conf:/etc/bind/named.conf
       - ${ROOT}/opt/bind/risp.in.zone:/var/bind/risp.in.zone
       - ${ROOT}/opt/bind/10.10.10.in-addr.arpa.zone:/var/bind/10.10.10.in-addr.arpa.zone
+      - ${ROOT}/opt/bind/8.168.192.in-addr.arpa.zone:/var/bind/8.168.192.in-addr.arpa.zone
+      - ${ROOT}/opt/bind/9.168.192.in-addr.arpa.zone:/var/bind/9.168.192.in-addr.arpa.zone
+      - ${ROOT}/opt/bind/11.168.192.in-addr.arpa.zone:/var/bind/11.168.192.in-addr.arpa.zone
 

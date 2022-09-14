@@ -1,0 +1,17 @@
+$ORIGIN 8.168.192.in-addr.arpa.
+$TTL 86400
+@     IN     SOA    ns1.risp.in.     hostmaster.risp.in. (
+                    2001062502 ; serial
+                    21600      ; refresh after 6 hours
+                    3600       ; retry after 1 hour
+                    604800     ; expire after 1 week
+                    10000 )    ; minimum TTL of 1 day
+
+      IN     NS     ns1.risp.in.
+
+; New servers
+1	IN	PTR	erx1-192-168-8-1.risp.in.
+20	IN	PTR	uap-1.risp.in.
+21	IN	PTR	uapacpro-1.risp.in.
+22	IN	PTR	es8xp-1.risp.in.
+25	IN	PTR	esxi1.risp.in.
