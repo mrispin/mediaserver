@@ -107,4 +107,5 @@ services:
     volumes:
       - ${ROOT}/opt/bind/named.conf:/etc/bind/named.conf
       - ${ROOT}/opt/bind/risp.in.zone:/var/bind/risp.in.zone
+      - ${ROOT}/opt/bind/10.10.10.in-addr.arpa.zone:/var/bind/10.10.10.in-addr.arpa.zone
 

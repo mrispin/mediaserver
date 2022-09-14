@@ -1,0 +1,28 @@
+$ORIGIN 10.10.10.in-addr.arpa.
+$TTL 86400
+@     IN     SOA    ns1.risp.in.     hostmaster.risp.in. (
+                    2001062501 ; serial
+                    21600      ; refresh after 6 hours
+                    3600       ; retry after 1 hour
+                    604800     ; expire after 1 week
+                    10000 )    ; minimum TTL of 1 day
+
+      IN     NS     dns1.example.com.
+
+; New servers
+53	IN	PTR	ns1.risp.in.
+17	IN	PTR	hp1.risp.in.
+17	IN	PTR	jackett.risp.in. 
+17	IN	PTR	media.risp.in. 
+17	IN	PTR	mysql.risp.in.  
+17	IN	PTR	pihole.risp.in.  
+17	IN	PTR	radarr.risp.in.  
+17	IN	PTR	sonarr.risp.in
+17	IN	PTR	storage1.risp.in.
+17	IN	PTR	transmission.risp.in.
+
+; Older servers
+
+20	IN	PTR	erx1.risp.in.
+10	IN	PTR	router1.risp.in.
+12	IN	PTR	unifi.risp.in

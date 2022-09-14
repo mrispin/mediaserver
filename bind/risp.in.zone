@@ -3,7 +3,7 @@ $TTL 2d    ; default TTL for zone
 $ORIGIN risp.in. ; base domain-name
 ; Start of Authority RR defining the key characteristics of the zone (domain)
 @         IN      SOA   ns1.risp.in. hostmaster.risp.in. (
-                                2003080800 ; serial number
+                                2003080801 ; serial number
                                 12h        ; refresh
                                 15m        ; update retry
                                 3w         ; expiry
@@ -29,13 +29,13 @@ es8xp-1	IN	A	192.168.8.22
 esxi1	IN	A	192.168.8.25	
 hp1-ilo	IN	A	192.168.9.121
 hp1	IN	A	192.168.9.122	
-jackett	IN	A	10.10.10.66	
-media	IN	A	10.10.10.14	
+jackett	IN	A	10.10.10.17
+media	IN	A	10.10.10.17	
 mk8s1	IN	A	192.168.16.10	
 mk8s2	IN	A	192.168.16.11	
-mysql	IN	A	10.10.10.15	
-pihole	IN	A	10.10.10.11	
-radarr	IN	A	10.10.10.64	
+mysql	IN	A	10.10.10.17	
+pihole	IN	A	10.10.10.17	
+radarr	IN	A	10.10.10.17	
 router1-192-168-16-1	IN	A	192.168.16.1	
 router1-192-168-17-1	IN	A	192.168.17.1
 router1-192-168-18-1	IN	A	192.168.18.1	
@@ -43,9 +43,9 @@ router1-192-168-19-1	IN	A	192.168.19.1
 router1	IN	A	10.10.10.10	
 server3	IN	A	10.10.10.13	
 smokeping	IN	A	10.10.10.68	
-sonarr	IN	A	10.10.10.65	
-storage1	IN	A	10.10.10.14	
-transmission	IN	A	10.10.10.70	
+sonarr	IN	A	10.10.10.17	
+storage1	IN	A	10.10.10.17
+transmission	IN	A	10.10.10.17	
 uap-1	IN	A	192.168.8.20	
 uapacpro-1	IN	A	192.168.8.21
 unifi	IN	A	10.10.10.12	
