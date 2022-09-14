@@ -17,7 +17,7 @@ $TTL 86400
 17	IN	PTR	mysql.risp.in.  
 17	IN	PTR	pihole.risp.in.  
 17	IN	PTR	radarr.risp.in.  
-17	IN	PTR	sonarr.risp.in
+17	IN	PTR	sonarr.risp.in.
 17	IN	PTR	storage1.risp.in.
 17	IN	PTR	transmission.risp.in.
 
