@@ -3,7 +3,7 @@ version: "3.8"
 services:
   transmission:
     container_name: transmission
-    image: linuxserver/transmission:3.00-r5-ls125
+    image: linuxserver/transmission:latest
     restart: unless-stopped
     environment:
       TZ: ${TZ}
@@ -31,7 +31,7 @@ services:
       - ${ROOT}/opt/jackett/config:/config
   sonarr:
     container_name: sonarr
-    image: linuxserver/sonarr:amd64-3.0.8.1507-ls148
+    image: linuxserver/sonarr:latest
     restart: unless-stopped
     environment:
       TZ: ${TZ}
@@ -45,7 +45,7 @@ services:
       - ${ROOT}/opt/sonarr/config:/config
   radarr:
     container_name: radarr
-    image: linuxserver/radarr:amd64-4.1.0.6175-ls141
+    image: linuxserver/radarr:latest
     restart: unless-stopped
     environment:
       TZ: ${TZ}
@@ -57,6 +57,49 @@ services:
     volumes:
       - ${ROOT}/:/downloads
       - ${ROOT}/opt/radarr/config:/config
+  readarr:
+    container_name: readarr
+    image: linuxserver/readarr:develop
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK_SET: "022"
+    ports: 
+      - "8787:8787/tcp"
+    volumes:
+      - ${ROOT}/:/downloads
+      - ${ROOT}/opt/readarr/config:/config
+  lidarr:
+    container_name: lidarr
+    image: linuxserver/lidarr:latest
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK_SET: "022"
+    ports: 
+      - "8686:8686/tcp"
+    volumes:
+      - ${ROOT}/:/downloads
+      - /mnt/ssd/lidarr/config:/config
+  lazylibrarian:
+    container_name: lazylibrarian
+    image: linuxserver/lazylibrarian:latest
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      UMASK_SET: "022"
+      DOCKER_MODS: "linuxserver/mods:universal-calibre|linuxserver/mods:lazylibrarian-ffmpeg"
+    ports: 
+      - "5299:5299/tcp"
+    volumes:
+      - ${ROOT}/:/downloads
+      - ${ROOT}/opt/lazylibrarian:/config
   nginx:
     container_name: nginx
     image: nginx:1.23.1

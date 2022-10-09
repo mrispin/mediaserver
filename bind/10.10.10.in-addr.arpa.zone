@@ -1,7 +1,7 @@
 $ORIGIN 10.10.10.in-addr.arpa.
 $TTL 86400
 @     IN     SOA    ns1.risp.in.     hostmaster.risp.in. (
-                    2001062502 ; serial
+                    2022062502 ; serial
                     21600      ; refresh after 6 hours
                     3600       ; retry after 1 hour
                     604800     ; expire after 1 week
