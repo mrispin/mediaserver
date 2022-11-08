@@ -109,8 +109,11 @@ services:
       NGINX_PORT: 80
     ports: 
       - "10.10.10.17:80:80/tcp"
+      - "10.10.10.17:81:81/tcp"
     volumes:
       - ${ROOT}/opt/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ${ROOT}/opt/media.risp.in:/var/www/media.risp.in
+      - ${ROOT}:/downloads
   mysql:
     container_name: mysql
     image: mariadb:10.9
