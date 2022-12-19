@@ -155,3 +155,17 @@ services:
     volumes:
       - ${ROOT}/opt/smokeping/config:/config
       - ${ROOT}/opt/smokeping/data:/data
+  code-server:
+    image: linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+      PASSWORD: ${CODE_SERVER_PASSWORD}
+      SUDO_PASSWORD: ${CODE_SERVER_SUDO_PASSWORD} 
+    volumes:
+      - ${ROOT}/opt/code-server/config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
