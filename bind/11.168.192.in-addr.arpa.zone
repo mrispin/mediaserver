@@ -18,3 +18,4 @@ $TTL 86400
 104	IN	PTR	cc-livingroom.risp.in.
 105	IN	PTR	ring-frontdoor.risp.in.
 106	IN	PTR	ring-chime.risp.in.
+107	IN	PTR	ring-stickupcam.risp.in.

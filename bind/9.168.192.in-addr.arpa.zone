@@ -1,7 +1,7 @@
 $ORIGIN 9.168.192.in-addr.arpa.
 $TTL 86400
 @     IN     SOA    ns1.risp.in.     hostmaster.risp.in. (
-                    2001062502 ; serial
+                    2001062503 ; serial
                     21600      ; refresh after 6 hours
                     3600       ; retry after 1 hour
                     604800     ; expire after 1 week
@@ -13,5 +13,6 @@ $TTL 86400
 1	IN	PTR	erx1-192-168-9-1.risp.in.
 122	IN	PTR	hp1.risp.in.
 121	IN	PTR	hpilo.risp.in.
+101	IN	PTR	ng-gs308e-1.risp.in.
 9	IN	PTR	pi.risp.in.
 10	IN	PTR	pi2.risp.in.

@@ -3,7 +3,7 @@ $TTL 2d    ; default TTL for zone
 $ORIGIN risp.in. ; base domain-name
 ; Start of Authority RR defining the key characteristics of the zone (domain)
 @         IN      SOA   ns1.risp.in. hostmaster.risp.in. (
-                                2022080802 ; serial number
+                                2022080805 ; serial number
                                 12h        ; refresh
                                 15m        ; update retry
                                 3w         ; expiry
@@ -30,14 +30,18 @@ esxi1	IN	A	192.168.8.25
 hp1-ilo	IN	A	192.168.9.121
 hp1	IN	A	192.168.9.122	
 jackett	IN	A	10.10.10.17
+lidarr	IN	A	10.10.10.17	
 media	IN	A	10.10.10.17	
-lazylibrarian	IN	A	10.10.10.17	
 mk8s1	IN	A	192.168.16.10	
 mk8s2	IN	A	192.168.16.11	
 mysql	IN	A	10.10.10.17	
+ng-gs308e-1	IN      A       192.168.9.101
+ng-wax206-1	IN      A       192.168.10.2
+ng-wax206-2	IN      A       192.168.10.3
+pi	IN	A	192.168.9.9
+pi2	IN	A	192.168.9.10	
 pihole	IN	A	10.10.10.17	
 radarr	IN	A	10.10.10.17	
-lidarr	IN	A	10.10.10.17	
 readarr	IN	A	10.10.10.17	
 router1-192-168-16-1	IN	A	192.168.16.1	
 router1-192-168-17-1	IN	A	192.168.17.1
@@ -45,10 +49,21 @@ router1-192-168-18-1	IN	A	192.168.18.1
 router1-192-168-19-1	IN	A	192.168.19.1	
 router1	IN	A	10.10.10.10	
 server3	IN	A	10.10.10.13	
-smokeping	IN	A	10.10.10.68	
+smokeping	IN	A	10.10.10.17
 sonarr	IN	A	10.10.10.17	
 storage1	IN	A	10.10.10.17
 transmission	IN	A	10.10.10.17	
 uap-1	IN	A	192.168.8.20	
 uapacpro-1	IN	A	192.168.8.21
 unifi	IN	A	10.10.10.12	
+
+; sensors wifi
+erx1-192-168-11-1	IN	A	192.168.11.1  
+boiler              IN	A	192.168.11.100
+cc-bathroom         IN	A	192.168.11.101
+cc-frontroom        IN	A	192.168.11.102
+cc-bedroom          IN	A	192.168.11.103
+cc-livingroom       IN	A	192.168.11.104
+ring-frontdoor      IN	A	192.168.11.105
+ring-chime          IN	A	192.168.11.106
+ring-stickupcam     IN	A	192.168.11.107
