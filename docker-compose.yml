@@ -85,21 +85,6 @@ services:
     volumes:
       - ${ROOT}/:/downloads
       - /mnt/ssd/lidarr/config:/config
-  lazylibrarian:
-    container_name: lazylibrarian
-    image: linuxserver/lazylibrarian:latest
-    restart: unless-stopped
-    environment:
-      TZ: ${TZ}
-      PUID: ${PUID}
-      PGID: ${PGID}
-      UMASK_SET: "022"
-      DOCKER_MODS: "linuxserver/mods:universal-calibre|linuxserver/mods:lazylibrarian-ffmpeg"
-    ports: 
-      - "5299:5299/tcp"
-    volumes:
-      - ${ROOT}/:/downloads
-      - ${ROOT}/opt/lazylibrarian:/config
   nginx:
     container_name: nginx
     image: nginx:1.23.1
@@ -157,4 +142,16 @@ services:
       - ${ROOT}/opt/bind/8.168.192.in-addr.arpa.zone:/var/bind/8.168.192.in-addr.arpa.zone
       - ${ROOT}/opt/bind/9.168.192.in-addr.arpa.zone:/var/bind/9.168.192.in-addr.arpa.zone
       - ${ROOT}/opt/bind/11.168.192.in-addr.arpa.zone:/var/bind/11.168.192.in-addr.arpa.zone
-
+  smokeping:
+    container_name: smokeping
+    image: linuxserver/smokeping:latest
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    ports:
+      - "8086:80/tcp"
+    volumes:
+      - ${ROOT}/opt/smokeping/config:/config
+      - ${ROOT}/opt/smokeping/data:/data
